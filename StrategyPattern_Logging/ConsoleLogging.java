@@ -10,4 +10,6 @@ public class ConsoleLogging implements Logging{
 	public void info(String formatter, Object... args){
 		info(String.format(formatter,args));
 	}
+	
+	//TODO: Implement error and warn
 }

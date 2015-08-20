@@ -33,4 +33,6 @@ public class FileLogging implements Logging{
 			}
 		}
 	}
+	
+	//TODO: Implement error and warn
 }
