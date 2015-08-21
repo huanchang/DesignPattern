@@ -35,4 +35,51 @@ public class FileLogging implements Logging{
 	}
 	
 	//TODO: Implement error and warn
+	@Override
+	public void warn(String formatter, Object... args){
+		info(String.format(formatter,args));
+	}
+	@Override
+	public void warn(String message){
+		FileWriter fos=null;
+		try{
+			fos = new FileWriter(toWrite);
+			fos.write(message);
+		}catch(IOException e){
+			System.out.println("IOException:"+e.getMessage());
+			e.printStackTrace();
+		}finally{
+			try{
+				if(fos!=null){
+					fos.close();
+				}
+			}catch(IOException e){
+				System.out.println("IOException:"+e.getMessage());
+			}
+		}
+	}
+	
+	@Override
+	public void error(String formatter, Object... args){
+		info(String.format(formatter,args));
+	}
+	@Override
+	public void error(String message){
+		FileWriter fos=null;
+		try{
+			fos = new FileWriter(toWrite);
+			fos.write(message);
+		}catch(IOException e){
+			System.out.println("IOException:"+e.getMessage());
+			e.printStackTrace();
+		}finally{
+			try{
+				if(fos!=null){
+					fos.close();
+				}
+			}catch(IOException e){
+				System.out.println("IOException:"+e.getMessage());
+			}
+		}
+	}
 }
